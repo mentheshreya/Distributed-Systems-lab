@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package chat;
+
+// Service definition exposing RPC endpoints
+service ChatService {
+  rpc SendMessage (ClientMessage) returns (ServerResponse) {}
+}
+
+// Request payload sent by the client
+message ClientMessage {
+  string sender = 1;
+  string message = 2;
+}
+
+// Response payload returned by the server
+message ServerResponse {
+  string status = 1;
+  string reply = 2;
+}
